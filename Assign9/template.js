@@ -1,0 +1,134 @@
+// redefining the html elements
+const htmlDocumentHead = document.getElementsByTagName("head");
+const headElements = htmlDocumentHead[0];
+const mytitle = document.createElement("title");
+mytitle.innerText = "My Todo Listing App";
+headElements.appendChild(mytitle);
+
+// body sections
+const main = document.querySelector("main");
+
+
+const landingSection = `<section class="container mt-5" id="default">
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 justify-content-center mr-0">
+                                <h2>Todo Listing App</h2>
+                                <p>
+                                    The app will help you note down all
+                                    task you are supposed or planed to do.
+                                </p>
+                                <p>
+                                    The app will also help note and track todo's
+                                    that you have already completed
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 justify-content-center mr-0 d-flex flex-row">
+                                <div class="login-btn">
+                                    <button id="signIn" class="btn btn-outline-dark">Login</button>
+                                </div>
+                                <div class="mr-2">
+                                    <button id="signUp" class="btn btn-outline-light">Register</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>`;
+
+const loginSection = `<section class="container mt-5" id="Login">
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 justify-content-center mr-0">
+                                <h3>Login</h3>
+                                <form action="" method="POST" id="login-form">
+                                    <div class="error"></div>
+                                    <label for="username">Username</label>
+                                    <input type="email" class="form-control" id="username" name="username" placeholder="example@domain.com">
+                                    <label for="password">Pasword</label>
+                                    <input type="password" class="form-control" id="passsword" name="password" placeholder="Input your password here">
+                                    <input type="checkbox" class="" id="check">
+                                    <label for="checkbox">Remember me</label>
+                                    <br>
+                                    <button type="submit" class="btn btn-lg btn-outline-dark form-control">Login</button>
+                                </form>
+                                <a href="#" id="gotoRegister">Not registered?</a>
+                            </div>
+                        </div>
+                    </section>`;
+
+const registerSection = `<section class="container mt-5" id="Register">
+                            <div class="row justify-content-center">
+                                <div class="col-md-4 justify-content-center">
+                                    <h3>Register Here</h3>
+                                    <form action="" method="POST" id="signup-form">
+                                        <div class="error"></div>
+                                        <label for="username">First Name</label>
+                                        <input type="text" class="form-control" id="first_name" name="firstname" placeholder="John">
+                                        <label for="username">Last Name</label>
+                                        <input type="text" class="form-control" id="last_name" name="lastname" placeholder="John">
+                                        <label for="username">Username</label>
+                                        <input type="email" class="form-control" id="user_name" name="username" placeholder="example@domain.com">
+                                        <label for="password">Pasword</label>
+                                        <input type="password" class="form-control" id="password1" minlength="6" name="password" placeholder="Input your password here">
+                                        <label for="password">Confirm Pasword</label>
+                                        <input type="password" class="form-control" id="password2" name="confirm" placeholder="Input your password here">
+                                        <input type="checkbox" class="" id="terms">
+                                        <label for="Terms" aria-required="true" required>Accept our Terms and Condition</label>
+                                        <br>
+                                        <button type="submit" class="btn btn-lg btn-outline-dark form-control">Sign-up</button>
+                                    </form>
+                                    <a href="#" id="gotoLogin">Already have an account?</a>
+                                </div>
+                            </div>
+                        </section>`;
+
+const dashBoardSection = `<section class="container mt-1" id="dashboard">
+                            <div class="row">
+                                <nav class="navabar">
+                                    <!-- <div class="mr-auto"></div> -->
+                                    <ul class="navbar-nav nav-pills d-flex flex-row float-end">
+                                        <li class="nav-item p-3"><a href="" id="account-settings" class="nav-link">Account <i class="bi bi-gear"></i></a></li>
+                                        <li class="nav-item p-3"><a href="" id="logout" class="nav-link"><i class="bi bi-box-arrow-left"></i> Logout</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="row mt-4" id="listlabel_section">
+                                <div class="col-md-12 col-sm-12 justify-content-center">
+                                    <form method="POST" id="addlist-form">
+                                        <div class="error"></div>
+                                        <label for="username">Add Task List Label</label>
+                                        <input type="text" class="form-control" id="task-title" name="title" placeholder="Routine">
+                                        <br>
+                                        <button type="submit" class="btn btn-info">Add to List</button>
+                                    </form>
+                                    <br>
+                                    <br>
+                                    <h4>List of all Todo's</h4>
+                                    <ol id="task-lists">
+                                        
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="row mt-4" id="profile-tools">
+                                <div class="col-md-6 col-sm-12 justify-content-center">
+                                    <form method="POST" id="update-form">
+                                        <label for="username">Username</label>
+                                        <input type="email" class="form-control" disabled id="u_name" name="uname">
+                                        <label for="Name">First Name</label>
+                                        <input type="text" class="form-control" id="f_name" name="fname">
+                                        <label for="Last Name">Last Name</label>
+                                        <input type="text" class="form-control" id="l_name" name="lname">
+                                        <label for="password">Pasword</label>
+                                        <input type="password" class="form-control" id="p1" minlength="6" name="pass1">
+                                        <!-- <label for="password">Confirm Pasword</label> -->
+                                        <!-- <input type="password" class="form-control" id="p2" name="pass2"> -->
+                                        <br>
+                                        <button type="submit" class="btn btn-lg btn-outline-dark form-control">Update</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>`;
+
+
+
+
+main.innerHTML = `${landingSection} ${loginSection} ${registerSection} ${dashBoardSection}`;

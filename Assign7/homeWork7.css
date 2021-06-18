@@ -1,0 +1,39 @@
+#rectangleWrapper{
+    padding: 50px 50px 0px 50px;
+    width: 100%;
+}
+.rectangle{
+    background-size: auto;
+    width: 200px;
+    height: 100px;
+}
+#rectangle1{
+    background-color: #0000FF;
+}
+#rectangle2{
+    background-color: #7b7bf8;
+}
+#rectangle3{
+    background-color: #770FAF ;
+}
+#rectangle4{
+    background-color: #abc1FF;
+}
+#rectangle5{
+    background-color: #abffd5;
+}
+#rectangle6{
+    background-color: #2c7a76;
+}
+#rectangle7{
+    background-color: #eba422;
+}
+#rectangle8{
+    background-color: #a30a23;
+}
+#rectangle9{
+    background-color: #191d1d;
+}
+#rectangle10{
+    background-color: #FEBF34;
+}

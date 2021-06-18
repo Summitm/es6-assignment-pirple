@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="image">
+    <img src="https://www.vidoomy.com/dev_test_full_en/img/1_img.jpg" alt="First">
+    <button class="remove">X</button>
+  </div>
+  <div class="image">
+    <img src="https://www.vidoomy.com/dev_test_full_en/img/2_img.jpg" alt="Second">
+    <button class="remove">X</button>
+  </div>
+
+
+  <script>
+    function setup() {
+    // Write your code here.
+    let target = document.querySelector(".remove");
+    target.addEventListener("click", function(event){
+      let parent = event.target.parentNode;
+      parent.remove();
+      console.log(document.body.innerHTML);
+    })
+    
+  }
+
+  setup();
+  
+  // document.getElementsByClassName("remove")[0].click();
+  console.log(document.body.innerHTML);
+  </script>
+</body>
+</html>
+
+

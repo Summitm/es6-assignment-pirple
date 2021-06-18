@@ -48,3 +48,7 @@ function mapper(i){
   return "Key1: "+ i;
 }
 console.log(mapped);
+
+/*pubky 297593886088e3c46744994b4915b571 */
+
+/*secrt c4c434ce3891c225 */

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Working with Notification API</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <main>
+        <!-- BEGIN Dashboard Default section -->
+        <section class="container mt-1" id="dashboard">
+            <div class="row mt-4 justify-content-center" id="listlabel_section">
+                <div class="col-md-6 col-sm-6 justify-content-center">
+
+                    <form method="POST" id="setAlarm">
+                        <h4>Set Alarm</h4>
+                        <div class="error"></div>
+
+                        <input type="text" class="form-control" id="alarmTitle" name="title"
+                            placeholder="Reminder note"
+                        >
+                        <br>
+
+                        <input type="time" class="form-control" id="alarmTime" name="time">
+                        <br>
+
+                        <input type="date" class="form-control" id="alarmDate" name="date">
+                        <br>
+
+                        <button type="submit" class="btn btn-outline-info" id="addAlarm">Save</button>
+                    </form>
+
+                    <br>
+                    <h4>Alarms</h4>
+                    <ol id="alarm-lists">
+                        
+                    </ol>
+                </div>
+            </div>
+        </section>
+    <!-- END Dashboard Default section -->
+    </main>
+
+    <script src="notification.js"></script>
+</body>
+</html>

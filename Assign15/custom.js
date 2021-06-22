@@ -35,6 +35,7 @@ function displayPosts(post) {
     let newElement1 = document.createElement('h3');
     newElement1.innerText = post.title;
     post_section.append(newElement1);
+    
     newElement1.style.textTransform = "capitalize";
     newElement1.style.color = "#FFFFFF";
 

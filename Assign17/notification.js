@@ -49,6 +49,8 @@ function createAlarm() {
         isExecuted: false
     }
 
+    console.log(alarmTime.value);
+
     alarms.push(alarm);
     saveAlarm(alarms);
 }
@@ -67,10 +69,12 @@ function displayAlarms(allAlarms) {
         li.setAttribute('class', 'task');
         li.id = alarmInList.Id;
 
-        li.innerHTML = `<input type="checkbox" ${isCompleted}>
-                        ${alarmInList.note}
-                        <i class="bi bi-trash delete"></i>`;
-
+        li.innerHTML = `<div class='row'>
+                            <div class='col-sm-4'><input type="checkbox" ${isCompleted}>
+                            ${alarmInList.note}</div>
+                            <div class='col-sm-4'>(rings at:${alarmInList.time} ${alarmInList.date})</div>
+                            <div class='col-sm-4'><i class="bi bi-trash delete"></i></div>
+                        </div>`;
         if(alarmInList.isExecuted) {
             li.classList.add(isCompleted);
         }
@@ -105,4 +109,24 @@ alarm_list.addEventListener('click', (event) => {
         deleteTask(event.target.parentElement.getAttribute('id'));
     }
 })
+
+// function ringAlarm(alamList) {
+    
+// }
+
+setTimeout(() => {
+    alarmList.forEach((alarm) => {
+        let getDate = alarm.date;
+        let getTime = alarm.time;
+
+        const currentLocalDate = new Date().toLocaleDateString();
+        const currentLocalTime = new Date.toLocaleTimeString();
+        if(getDate === currentLocalDate && getTime === currentLocalTime) {
+            console.log("Alarm should ring");
+        }
+        else {
+            // do nothing
+        }
+    })
+},1000);
 // navigator.permissions.revoke({name: 'notifications'});

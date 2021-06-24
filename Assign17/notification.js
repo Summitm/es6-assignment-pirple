@@ -44,12 +44,11 @@ function createAlarm() {
     const alarm = {
         Id: ~~((Math.random() * 10) + 1),
         note: alarmNote.value,
-        time: alarmTime.value,
-        date: alarmDate.value,
+        time: alarmTime.value.toLocaleString(),
+        date: alarmDate.value.toLocaleString(),
         isExecuted: false
     }
-
-    console.log(alarmTime.value);
+//    console.log(`${alarmTime.value.toLocaleString()} and date is ${alarmDate.value.toLocaleString()}`);
 
     alarms.push(alarm);
     saveAlarm(alarms);
@@ -73,8 +72,8 @@ function displayAlarms(allAlarms) {
                             <div class='col-sm-4'><input type="checkbox" ${isCompleted}>
                             ${alarmInList.note}</div>
                             <div class='col-sm-4'>(rings at:${alarmInList.time} ${alarmInList.date})</div>
-                            <div class='col-sm-4'><i class="bi bi-trash delete"></i></div>
-                        </div>`;
+                            <div class='col-sm-4'></i></div>
+                        </div><i class="bi bi-trash delete"></i>`;
         if(alarmInList.isExecuted) {
             li.classList.add(isCompleted);
         }
@@ -96,7 +95,7 @@ autoFetchAlarms();
 
 function deleteTask(id) {
     alarms = alarms.filter((alarmInList)=>{
-        if(!alarmInList.isExecuted) {
+        if(alarmInList.isExecuted !== true) {
             return alarmInList.Id != id;
         }
     });
@@ -114,19 +113,27 @@ alarm_list.addEventListener('click', (event) => {
     
 // }
 
-setTimeout(() => {
-    alarmList.forEach((alarm) => {
-        let getDate = alarm.date;
+setInterval(() => {
+    alarms.forEach((alarm) => {
+        let getDate = new Date(alarm.date).toLocaleDateString();
         let getTime = alarm.time;
 
-        const currentLocalDate = new Date().toLocaleDateString();
-        const currentLocalTime = new Date.toLocaleTimeString();
-        if(getDate === currentLocalDate && getTime === currentLocalTime) {
-            console.log("Alarm should ring");
+        const currentLocalDate = new Date().toLocaleDateString('en-US');
+        const currentLocalTime = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: false });
+        // console.log(`${getDate} vs ${currentLocalDate}`);
+        // console.log(`${getTime} vs ${currentLocalTime}`);
+        if(getDate == currentLocalDate && getTime == currentLocalTime) {
+            var alarmClockIcon = '<i class="bi bi-alarm"></i>';
+            var createNotif = new Notification(alarm.note, {body:"riiing riiing!", icon:alarmClockIcon});
+            if(createNotif) {
+                console.log("Alarm is ringing!");
+                alarm.isExecuted = true;
+                saveAlarm(alarms);
+            }
         }
         else {
             // do nothing
         }
     })
-},1000);
+},60000);
 // navigator.permissions.revoke({name: 'notifications'});
